@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWD Login </title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            /* light grey */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #3498db;
+            /* light blue */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            /* white */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            /* dark grey */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            /* light grey */
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            /* light blue */
+            color: #fff;
+            /* white */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #207bb2;
+            /* darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Secure Web Development App</h1>
+      <% if (messages.error) { %>
+        <%= messages.error %>
+            <% } %>
+                <div class="container">
+                    <a href="/add" class="btn btn-sm btn-primary" >Add User</a><br/><br/>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%result.forEach(function(user){%>
+                                <tr>
+                            <td> <%=user.id %></td>
+                            <td> <%=user.name %></td>
+                            <td> <%=user.role %></td>
+                            <td>
+                                <a href = "/delete/<%=user.id %>" class="btn btn-sm btn-primary" name="/delete/<%=user.id %>">Delete</a>
+                                <a href = "/edit/<%=user.id %>" class="btn btn-sm btn-primary" name="/edit/<%=user.id %>">Edit</a> 
+                            </td>
+                            </tr>
+                        <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </body>
+</body>
+
+    <a href="/logout">Exit</a>
+</html>
+

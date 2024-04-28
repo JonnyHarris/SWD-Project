@@ -1,0 +1,1 @@
+DELETE FROM names WHERE id > 6;
